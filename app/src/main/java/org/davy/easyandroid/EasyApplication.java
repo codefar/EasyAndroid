@@ -15,13 +15,13 @@ import org.davy.easyandroid.di.ComponentManager;
 
 public class EasyApplication extends Application {
 
-    public static EasyApplication sAppContext;
+    public static EasyApplication sContext;
 
     @Override
     public void onCreate() {
 //        StrickModeHelper.init();
         super.onCreate();
-        sAppContext = this;
+        sContext = this;
         ComponentManager.appComponent();
 //        BlockCanary.install(this, new AppBlockCanaryContext()).start();
     }

@@ -4,9 +4,12 @@ import android.app.Application;
 
 import com.google.gson.Gson;
 
+import org.davy.easyandroid.api.ServerService;
 import org.davy.easyandroid.di.module.ApplicationModule;
 import org.davy.easyandroid.di.module.DaoModule;
 import org.davy.easyandroid.di.module.NetModule;
+import org.davy.easyandroid.domain.DaoMaster;
+import org.davy.easyandroid.domain.DaoSession;
 import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Singleton;
@@ -27,9 +30,11 @@ public interface ApplicationComponent {
 
     Gson gson();
 
-//    DaoMaster daoMaster();
-//
-//    DaoSession daoSession();
+    DaoMaster daoMaster();
+
+    DaoSession daoSession();
 
     Database database();
+
+    ServerService service();
 }

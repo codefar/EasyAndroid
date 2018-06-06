@@ -16,8 +16,6 @@
  */
 package org.davy.easyandroid.di.component;
 
-import android.app.Activity;
-
 import org.davy.easyandroid.MainActivity;
 import org.davy.easyandroid.di.module.ActivityModule;
 import org.davy.easyandroid.di.scope.PerActivity;
@@ -33,8 +31,5 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
-
-    Activity getActivity();
-
     void inject(MainActivity newsActivity);
 }

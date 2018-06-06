@@ -2,9 +2,14 @@ package org.davy.easyandroid.di.module;
 
 import android.support.annotation.NonNull;
 
+import org.davy.easyandroid.api.ServerService;
+
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
+import dagger.Provides;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -50,9 +55,9 @@ public class NetModule {
         return builder;
     }
 
-//    @Singleton
-//    @Provides
-//    public BA providerBA() {
-//        return createService("https://image.baidu.com/", BA.class);
-//    }
+    @Singleton
+    @Provides
+    public ServerService provideServerService() {
+        return createService("https://image.baidu.com/", ServerService.class);
+    }
 }

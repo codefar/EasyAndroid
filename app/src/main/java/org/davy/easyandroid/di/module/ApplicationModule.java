@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
@@ -39,6 +40,6 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Gson provideGson() {
-        return new Gson();
+        return new GsonBuilder().create();
     }
 }

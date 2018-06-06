@@ -2,10 +2,10 @@ package org.davy.easyandroid.di;
 
 import org.davy.easyandroid.EasyApplication;
 import org.davy.easyandroid.di.component.ApplicationComponent;
+import org.davy.easyandroid.di.component.DaggerApplicationComponent;
 import org.davy.easyandroid.di.module.ApplicationModule;
-
-import davy.codes.App;
-import davy.codes.component.NetModule;
+import org.davy.easyandroid.di.module.DaoModule;
+import org.davy.easyandroid.di.module.NetModule;
 
 /**
  * author: wangyonghua
@@ -24,8 +24,9 @@ public class ComponentManager {
             synchronized (ComponentManager.class) {
                 if (sApplicationComponent == null) {
                     sApplicationComponent = DaggerApplicationComponent.builder()
-                            .appContextModule(new ApplicationModule(EasyApplication.sAppContext))
+                            .applicationModule(new ApplicationModule(EasyApplication.sContext))
                             .netModule(new NetModule())
+                            .daoModule(new DaoModule(EasyApplication.sContext))
                             .build();
                 }
             }

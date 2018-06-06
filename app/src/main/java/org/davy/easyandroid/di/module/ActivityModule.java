@@ -2,7 +2,10 @@ package org.davy.easyandroid.di.module;
 
 import android.app.Activity;
 
+import org.davy.easyandroid.di.scope.PerActivity;
+
 import dagger.Module;
+import dagger.Provides;
 
 /**
  * author: wangyonghua
@@ -17,4 +20,11 @@ public class ActivityModule {
     public ActivityModule(Activity activity) {
         mActivity = activity;
     }
+
+    @Provides
+    @PerActivity
+    public Activity provideActivity() {
+        return this.mActivity;
+    }
+
 }
