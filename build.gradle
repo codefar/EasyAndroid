@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
@@ -20,18 +21,11 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url  "https://dl.bintray.com/davy/maven"
+        }
     }
-}
-
-subprojects {
-    println("subprojects " + getName() + " " + getProperties())
-//    afterEvaluate {
-//        if(getPlugins().findPlugin('com.android.application') != null || getPlugins().findPlugin('com.android.library') != null) {
-//            println("subprojects1")
-//            apply from: './plugin.gradle'
-//            apply from: './suppert_common.gradle'
-//        }
-//    }
 }
 
 task clean(type: Delete) {

@@ -5,6 +5,12 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import org.davy.easyandroid.di.ComponentManager;
+import org.greenleaf.utils.AssetsUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * author: wangyonghua
@@ -16,6 +22,7 @@ import org.davy.easyandroid.di.ComponentManager;
 public class EasyApplication extends Application {
 
     public static EasyApplication sContext;
+    Logger logger = LoggerFactory.getLogger(EasyApplication.class);
 
     @Override
     public void onCreate() {
@@ -24,6 +31,18 @@ public class EasyApplication extends Application {
         sContext = this;
         ComponentManager.appComponent();
 //        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    AssetsUtils.copyAssetsFile(getApplicationContext(),  "ff.txt", getExternalFilesDir("").getAbsolutePath()
+                    + File.separator + "ff.txt");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        logger.info("log {} something ", "String");
     }
 
     @Override
