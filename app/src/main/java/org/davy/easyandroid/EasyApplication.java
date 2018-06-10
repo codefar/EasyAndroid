@@ -22,7 +22,7 @@ import java.io.IOException;
 public class EasyApplication extends Application {
 
     public static EasyApplication sContext;
-    Logger logger = LoggerFactory.getLogger(EasyApplication.class);
+    Logger mLogger = LoggerFactory.getLogger(EasyApplication.class);
 
     @Override
     public void onCreate() {
@@ -38,11 +38,10 @@ public class EasyApplication extends Application {
                     AssetsUtils.copyAssetsFile(getApplicationContext(),  "ff.txt", getExternalFilesDir("").getAbsolutePath()
                     + File.separator + "ff.txt");
                 } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
         }).start();
-        logger.info("log {} something ", "String");
+        mLogger.info("log {} something ", "String");
     }
 
     @Override
