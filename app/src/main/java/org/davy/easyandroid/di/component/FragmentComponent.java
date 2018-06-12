@@ -7,7 +7,7 @@ import org.davy.easyandroid.di.scope.PerActivity;
 import dagger.Component;
 
 @PerActivity
-@Component(modules = {FragmentModule.class})
+@Component(modules = {FragmentModule.class}, dependencies = ApplicationComponent.class)
 public interface FragmentComponent {
     void inject(BaseFragment fragment);
 }

@@ -1,4 +1,5 @@
 package org.davy.easyandroid.mvp;
 
-public class BasePresenter {
+public interface BasePresenter {
+    void start();
 }
