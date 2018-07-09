@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PureGridLayout">
+        <attr name="column_count" format="integer" />
+        <attr name="row_count" format="integer" />
+        <attr name="gap" format="dimension" />
+        <attr name="gap_include_outline" format="boolean"/>
+        <attr name="adjust_strategy" format="enum">
+            <enum name="TO_MOST" value="0"/>
+            <enum name="TO_LEAST" value="1"/>
+            <enum name="LAST_ADJUST" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>
